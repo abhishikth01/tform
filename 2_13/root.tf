@@ -33,7 +33,7 @@ module "ec2_dmc" {
   vpcid              = "${module.vpc.npn_vpc_id}"
   npn_sub_001        = "${module.subnet.npn_sub001}"
   npn_sub_002        = "${module.subnet.npn_sub002}"
-  security_group_web = "${module.Security_Grp.sec_grp_web}"
+  security_group_dmc = "${module.Security_Grp.sec_grp_web}"
 }
 
 module "ec2_app1_web" {
@@ -61,15 +61,19 @@ output "web1_ip" {
 output "web2_ip" {
   value = "${module.ec2_app1_web.web2_ip}"
 }
-output "dmc1_ip" {
-  value = "${module.ec2_dmc.dmc1_int_ip}"
+output "dmc1_pvt_ip" {
+  value = "${module.ec2_dmc.dmc1_pvt_ip}"
 }
-output "dmc2_ip" {
-  value = "${module.ec2_dmc.dmc2_int_ip}"
+/*
+output "dmc2_pvt_ip" {
+  value = "${module.ec2_dmc.dmc2_pvt_ip}"
 }
-output "dmc1_mgmt_ip" {
+*/
+output "dmc1_pub_ip" {
   value = "${module.ec2_dmc.dmc1_pub_ip}"
 }
-output "dmc2_mgmt_ip" {
+/*
+output "dmc2_pub_ip" {
   value = "${module.ec2_dmc.dmc2_pub_ip}"
 }
+*/
