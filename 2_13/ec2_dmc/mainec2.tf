@@ -68,6 +68,20 @@ output "dmc2_id" {
   value = "${aws_instance.dmc2.id}"
 }
 
+output "dmc1_int_ip" {
+  value = "${aws_instance.dmc1.private_ip}"
+}
+output "dmc2_int_ip" {
+  value = "${aws_instance.dmc2.private_ip}"
+}
+output "dmc1_pub_ip" {
+  value = "${aws_instance.dmc1.public_ip}"
+}
+output "dmc2_pub_ip" {
+  value = "${aws_instance.dmc2.public_ip}"
+}
+
+
 /*
 output "web1_id" {
   value = "${aws_instance.web1.id}"

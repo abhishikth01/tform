@@ -54,3 +54,22 @@ module "app1_elb" {
   npn_sub_004        = "${module.subnet.npn_sub004}"
   security_group_web = "${module.Security_Grp.sec_grp_web}"
 }
+
+output "web1_ip" {
+  value = "${module.ec2_app1_web.web1_ip}"
+}
+output "web2_ip" {
+  value = "${module.ec2_app1_web.web2_ip}"
+}
+output "dmc1_ip" {
+  value = "${module.ec2_dmc.dmc1_int_ip}"
+}
+output "dmc2_ip" {
+  value = "${module.ec2_dmc.dmc2_int_ip}"
+}
+output "dmc1_mgmt_ip" {
+  value = "${module.ec2_dmc.dmc1_pub_ip}"
+}
+output "dmc2_mgmt_ip" {
+  value = "${module.ec2_dmc.dmc2_pub_ip}"
+}
