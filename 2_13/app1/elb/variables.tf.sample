@@ -1,0 +1,23 @@
+variable "ami_id" {
+  default = "/*enter the ami-id that has to be used for building the ec2 instances*/"
+}
+
+variable "key_name" {
+  default = "id_rsa"
+}
+
+variable "pub_key" {
+  default = "/*copy paste your public key content in here.*/"
+}
+
+variable "az1" {
+  default = "ap-south-1a"
+}
+
+variable "az2" {
+  default = "ap-south-1b"
+}
+
+variable "vpc_security_group_ids" {
+  default = [""]
+}
