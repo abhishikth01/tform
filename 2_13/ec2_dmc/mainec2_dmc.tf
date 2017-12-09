@@ -84,7 +84,6 @@ output "dmc2_pub_ip" {
   value = "${aws_instance.dmc2.public_ip}"
 }
 
-
 /*
 output "web1_id" {
   value = "${aws_instance.web1.id}"

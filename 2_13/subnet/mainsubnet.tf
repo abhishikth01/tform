@@ -28,7 +28,6 @@ resource "aws_subnet" "sub_004" {
   map_public_ip_on_launch = "false"
 }
 
-
 output "npn_sub001" {
   value = "${aws_subnet.sub_001.id}"
 }

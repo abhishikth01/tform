@@ -61,6 +61,7 @@ resource "aws_security_group" "dmc_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   ingress {
     from_port   = 443
     to_port     = 443
@@ -74,7 +75,6 @@ resource "aws_security_group" "dmc_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 
   egress {
     from_port   = 0
@@ -104,7 +104,8 @@ resource "aws_security_group" "nat_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-   ingress {
+
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -117,7 +118,6 @@ resource "aws_security_group" "nat_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 
   egress {
     from_port   = 0

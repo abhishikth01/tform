@@ -2,16 +2,18 @@
 #variable "npn_sub_003" {}
 #variable "npn_sub_004" {}
 variable "npn_sub_001" {}
+
 variable "npn_sub_002" {}
+
 #variable "ec2_app2_w2_id" {}
 variable "security_group_web" {}
 
 # Create a new load balancer
 resource "aws_elb" "app2_lb" {
-  name               = "abhishikth-app2-elb"
-  subnets = ["${var.npn_sub_001}","${var.npn_sub_002}"]
+  name            = "abhishikth-app2-elb"
+  subnets         = ["${var.npn_sub_001}", "${var.npn_sub_002}"]
   security_groups = ["${var.security_group_web}"]
-  internal = "false"
+  internal        = "false"
 
   listener {
     instance_port     = 80
@@ -28,7 +30,7 @@ resource "aws_elb" "app2_lb" {
     interval            = 30
   }
 
-# instances                   = ["${var.ec2_app2_w1_id}", "${var.ec2_app2_w2_id}"]
+  # instances                   = ["${var.ec2_app2_w1_id}", "${var.ec2_app2_w2_id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true

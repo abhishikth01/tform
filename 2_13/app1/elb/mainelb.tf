@@ -6,8 +6,8 @@ variable "security_group_web" {}
 
 # Create a new load balancer
 resource "aws_elb" "bar" {
-  name               = "abhishikth-elb"
-  subnets = ["${var.npn_sub_003}","${var.npn_sub_004}"]
+  name            = "abhishikth-elb"
+  subnets         = ["${var.npn_sub_003}", "${var.npn_sub_004}"]
   security_groups = ["${var.security_group_web}"]
 
   listener {

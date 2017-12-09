@@ -81,6 +81,7 @@ output "web2_id" {
 output "web1_ip" {
   value = "${aws_instance.web1.private_ip}"
 }
+
 output "web2_ip" {
   value = "${aws_instance.web2.private_ip}"
 }

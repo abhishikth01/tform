@@ -11,8 +11,7 @@ resource "aws_instance" "nat" {
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${var.security_group_nat}"]
   availability_zone      = "${var.az1}"
-  source_dest_check = "false"
-
+  source_dest_check      = "false"
 
   tags {
     Name = "nat_inst"
@@ -23,9 +22,11 @@ resource "aws_instance" "nat" {
 output "nat_id" {
   value = "${aws_instance.nat.id}"
 }
+
 output "nat_pub_ip" {
   value = "${aws_instance.nat.public_ip}"
 }
+
 output "nat_pvt_ip" {
   value = "${aws_instance.nat.private_ip}"
 }
