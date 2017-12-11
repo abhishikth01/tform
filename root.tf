@@ -1,8 +1,7 @@
-#this line is commentd to find git diff
 module "vpc" {
   source = "./2_13/vpc"
 }
-
+#second line added to find git diff
 module "subnet" {
   source = "./2_13/subnet"
   vpc_id = "${module.vpc.npn_vpc_id}"
