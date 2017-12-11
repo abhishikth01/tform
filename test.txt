@@ -1,1 +1,3 @@
 checking branching functionality in git
+
+This after hotfix branch was deleted.
