@@ -1,19 +1,19 @@
 module "vpc" {
-  source = "./vpc"
+  source = "./2_13/vpc"
 }
 
 module "subnet" {
-  source = "./subnet"
+  source = "./2_13/subnet"
   vpc_id = "${module.vpc.npn_vpc_id}"
 }
 
 module "internet_gateway" {
-  source = "./internetgateway"
+  source = "./2_13/internetgateway"
   vpcid  = "${module.vpc.npn_vpc_id}"
 }
 
 module "route_table" {
-  source      = "./routetable"
+  source      = "./2_13/routetable"
   vpc_id      = "${module.vpc.npn_vpc_id}"
   igtway_id   = "${module.internet_gateway.intGW}"
   npn_sub_001 = "${module.subnet.npn_sub001}"
@@ -24,12 +24,12 @@ module "route_table" {
 }
 
 module "Security_Grp" {
-  source = "./securityGrp"
+  source = "./2_13/securityGrp"
   vpcid  = "${module.vpc.npn_vpc_id}"
 }
 
 module "ec2_dmc" {
-  source = "./ec2_dmc"
+  source = "./2_13/ec2_dmc"
 
   vpcid              = "${module.vpc.npn_vpc_id}"
   npn_sub_001        = "${module.subnet.npn_sub001}"
@@ -39,16 +39,16 @@ module "ec2_dmc" {
 
 /*
 module "ec2_app2_web" {
-  source = "./app2/ec2_web"
+  source = "./2_13/app2/ec2_web"
   
   vpcid              = "${module.vpc.npn_vpc_id}"
   npn_sub_003        = "${module.subnet.npn_sub003}"
   npn_sub_004        = "${module.subnet.npn_sub004}"
   security_group_web = "${module.Security_Grp.sec_grp_web}"
 }
-*/
+
 module "app2_elb" {
-  source = "./app2/elb"
+  source = "./2_13/app2/elb"
 
   # ec2_app2_w1_id = "${module.ec2_app2_web.web1_id}"
   # ec2_app2_w2_id = "${module.ec2_app2_web.web2_id}"
@@ -58,9 +58,9 @@ module "app2_elb" {
   security_group_web = "${module.Security_Grp.sec_grp_web}"
 }
 
-/*
+
 module "app2_autoscale" {
-  source = "./app2/autoscaling"
+  source = "./2_13/app2/autoscaling"
   
   load_balancer = "${module.app2_elb.app2_elb_id}"
   npn_sub_003        = "${module.subnet.npn_sub003}"
@@ -70,7 +70,7 @@ module "app2_autoscale" {
 */
 
 module "nat_instance" {
-  source = "./app2/natinstance"
+  source = "./2_13/app2/natinstance"
 
   vpcid              = "${module.vpc.npn_vpc_id}"
   npn_sub_001        = "${module.subnet.npn_sub001}"
